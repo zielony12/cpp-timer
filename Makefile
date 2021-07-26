@@ -28,4 +28,4 @@ uninstall:
 	rm -r $(INSTALLDIR)/$(TARGET)
 	rm -r $(H_INSTALLDIR)/Timer.hpp
 clean :
-	rm $(OBJ)
+	rm *.o

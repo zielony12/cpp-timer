@@ -11,7 +11,7 @@ LDFLAGS := -shared -o
 DEBUG ?= 0
 
 ifeq ($(DEBUG), 1)
-	CXXFLAGS += -g -gdwarf
+	CXXFLAGS += -g -gdwarf -fpic
 else
 	CXXFLAGS += -O2 -Wall -Werror -fpic
 endif

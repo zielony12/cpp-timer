@@ -2,6 +2,8 @@
 #include <iostream>
 #include <unistd.h>
 
+using namespace tmr;
+
 Timer::Timer(std::string c, int h, int m, int s) {
 	caption = c;
 	this->h = h;

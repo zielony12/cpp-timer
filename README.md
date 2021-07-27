@@ -18,6 +18,7 @@ int main() {
 	timer1.start(); // run the timer1
 	return 0;
 }
+```
 
 Compiling: `g++ -c main.cpp`
 Linking: `g++ main.o -o timer-app -ltimer`

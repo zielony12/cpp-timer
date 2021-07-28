@@ -22,5 +22,6 @@ package() {
 	install -Dm755 ${srcdir}/${pkgname}/bin/${pkgname}.so ${pkgdir}/usr/lib/${pkgname}.so
 	install -Dm644 ${srcdir}/${pkgname}/include/timer/Countdown.hpp ${pkgdir}/usr/include/timer/Countdown.hpp
 	install -Dm644 ${srcdir}/${pkgname}/include/timer/Stopwatch.hpp ${pkgdir}/usr/include/timer/Stopwatch.hpp
+	install -Dm644 ${srcdir}/${pkgname}/include/timer/Timer.hpp 	${pkgdir}/usr/include/timer/Timer.hpp
 	install -Dm644 ${srcdir}/${pkgname}/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }

@@ -28,12 +28,14 @@ else
 endif
 
 $(BINDIR)/$(TARGET): $(OBJ)	
+	@if ! test -d $(BINDIR); then mkdir $(BINDIR); fi
 ifeq ($(STATIC), 0)
 	$(CXX) $^ $(LDFLAGS) -o $@
 else
 	$(AR) $(ARFLAGS) $(BINDIR)/$(TARGET) $(OBJ)
 endif
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@if ! test -d $(OBJDIR); then mkdir $(OBJDIR); fi
 	$(CXX) $< $(CXXFLAGS) -o $@
 install:
 	mkdir -p $(INSTALLDIR)

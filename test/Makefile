@@ -19,8 +19,10 @@ else
 endif
 
 $(BINDIR)/$(TARGET): $(OBJ)	
+	@if ! test -d $(BINDIR); then mkdir $(BINDIR); fi
 	$(CXX) $^ $(LIBS) $(LDFLAGS) -o $@
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@if ! test -d $(OBJDIR); then mkdir $(OBJDIR); fi
 	$(CXX) $< $(CXXFLAGS) -o $@
 install:
 	mkdir -p $(INSTALLDIR)

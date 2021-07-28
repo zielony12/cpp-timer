@@ -20,6 +20,6 @@ build() {
 
 package() {
 	install -Dm755 ${srcdir}/${pkgname}/bin/${pkgname}.so ${pkgdir}/usr/lib/${pkgname}.so
-	install -Dm644 ${srcdir}/${pkgname}/include/timer/Timer.hpp ${pkgdir}/usr/include/Timer.hpp
+	install -Dm644 ${srcdir}/${pkgname}/include/timer/Countdown.hpp ${pkgdir}/usr/include/Countdown.hpp
 	install -Dm644 ${srcdir}/${pkgname}/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }

@@ -15,12 +15,13 @@ STATIC := 0
 DEBUG ?= 0
 
 ifeq ($(DEBUG), 1)
-	CXXFLAGS += -g -gdwarf -fpic
+	CXXFLAGS += -g -gdwarf
 else
-	CXXFLAGS += -O2 -Wall -Werror -fpic
+	CXXFLAGS += -O2 -Wall -Werror
 endif
 
 ifeq ($(STATIC), 0)
+	CXXFLAGS += -fpic
 	LDFLAGS += -shared
 else
 	TARGET := libtimer.a
@@ -36,11 +37,11 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CXX) $< $(CXXFLAGS) -o $@
 install:
 	mkdir -p $(INSTALLDIR)
-	mkdir -p $(H_INSTALLDIR)
+	mkdir -p $(H_INSTALLDIR)/timer
 	cp -p $(BINDIR)/$(TARGET) $(INSTALLDIR)
-	cp -p include/timer/Timer.hpp $(H_INSTALLDIR)
+	cp -p include/timer/*.hpp $(H_INSTALLDIR)/timer
 uninstall:
 	rm -r $(INSTALLDIR)/$(TARGET)
-	rm -r $(H_INSTALLDIR)/Timer.hpp
+	rm -r $(H_INSTALLDIR)/timer
 clean :
 	rm $(OBJDIR)/*.o

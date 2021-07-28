@@ -1,5 +1,5 @@
 CXX := g++
-LIBS := -ltimer
+LIBS := -ltimer -lpthread
 TARGET := timer-test
 INCDIR := include
 SRCDIR := src
@@ -9,7 +9,7 @@ SRC := $(wildcard $(SRCDIR)/*.cpp)
 OBJ := $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o) 
 INSTALLDIR := /usr/bin
 H_INSTALLDIR := /usr/include
-CXXFLAGS := -c -I $(INCDIR)
+CXXFLAGS := -c -I $(INCDIR) -std=c++20
 DEBUG ?= 0
 
 ifeq ($(DEBUG), 1)

@@ -1,4 +1,5 @@
 #include <timer/Countdown.hpp>
+#include <timer/Timer.hpp>
 #include <iostream>
 #include <unistd.h>
 
@@ -10,13 +11,7 @@ Countdown::Countdown(std::string c, int h, int m, int s) {
 	this->m = m;
 	this->s = s;
 	couldShowTime = true;
-}
-
-std::string Countdown::format(int x) {
-	if(x < 10)
-		return "0" + std::to_string(x);
-	else
-		return std::to_string(x);
+	couldShowCaptionAtEnd = true;
 }
 
 void Countdown::start() {
@@ -26,8 +21,9 @@ void Countdown::start() {
 		int m = (i % 3600) / 60;
 		int s = i % 60;
 		if(couldShowTime)
-			std::cout << Countdown::format(h) << " : " << Countdown::format(m) << " : " << Countdown::format(s) << std::endl;
+			std::cout << tmr::format(h) << " : " << tmr::format(m) << " : " << tmr::format(s) << std::endl;
 		sleep(1); 
 	}
-	std::cout << "Countdown Timer ”" << caption << "” ended." << std::endl;
+	if(couldShowCaptionAtEnd) 
+		std::cout << "Countdown Timer \"" << caption << "\" ended." << std::endl;
 }

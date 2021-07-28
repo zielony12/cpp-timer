@@ -7,8 +7,8 @@ namespace tmr {
 		public:
 			Countdown(std::string c, int h, int m, int s);
 			int h, m, s;
-			bool couldShowTime;
-			std::string format(int x),  caption;
+			bool couldShowTime, couldShowCaptionAtEnd;
+			std::string caption;
 			void start(), showTime();
 	};
 }

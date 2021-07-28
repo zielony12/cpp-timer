@@ -2,7 +2,7 @@
 # Contributor: Karol Purgal <xdzielony at gmail dot com>
 
 pkgname=libtimer
-pkgver=0.1.0
+pkgver=0.1.1
 pkgrel=1
 pkgdesc="A simple timer C++ library"
 arch=('any')
@@ -21,5 +21,6 @@ build() {
 package() {
 	install -Dm755 ${srcdir}/${pkgname}/bin/${pkgname}.so ${pkgdir}/usr/lib/${pkgname}.so
 	install -Dm644 ${srcdir}/${pkgname}/include/timer/Countdown.hpp ${pkgdir}/usr/include/Countdown.hpp
+	install -Dm644 ${srcdir}/${pkgname}/include/timer/Stopwatch.hpp ${pkgdir}/usr/include/Stopwatch.hpp
 	install -Dm644 ${srcdir}/${pkgname}/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }

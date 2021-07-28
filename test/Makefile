@@ -1,5 +1,5 @@
 CXX := g++
-LIBS := -ltimer -lpthread
+LIBS := -ltimer
 TARGET := timer-test
 INCDIR := include
 SRCDIR := src

@@ -2,6 +2,7 @@ CXX := g++
 AR := ar
 TARGET := libtimer.so
 INCDIR := include
+HPPDIR := timer
 SRCDIR := src
 OBJDIR := obj
 BINDIR := bin
@@ -39,11 +40,11 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CXX) $< $(CXXFLAGS) -o $@
 install:
 	mkdir -p $(INSTALLDIR)
-	mkdir -p $(H_INSTALLDIR)/timer
+	mkdir -p $(H_INSTALLDIR)/$(HPPDIR)
 	cp -p $(BINDIR)/$(TARGET) $(INSTALLDIR)
-	cp -p include/timer/*.hpp $(H_INSTALLDIR)/timer
+	cp -p include/$(HPPDIR)/*.hpp $(H_INSTALLDIR)/$(HPPDIR)
 uninstall:
 	rm -r $(INSTALLDIR)/$(TARGET)
-	rm -r $(H_INSTALLDIR)/timer
+	rm -r $(H_INSTALLDIR)/$(HPPDIR)
 clean :
 	rm $(OBJDIR)/*.o

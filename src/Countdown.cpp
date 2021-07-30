@@ -1,11 +1,9 @@
 #include <timer/Countdown.hpp>
-#include <timer/Timer.hpp>
+#include <timer/Util.hpp>
 #include <iostream>
 #include <unistd.h>
 
-using namespace tmr;
-
-Countdown::Countdown(std::string c, int h, int m, int s) {
+tmr::Countdown::Countdown(std::string c, int h, int m, int s) {
 	caption = c;
 	this->h = h;
 	this->m = m;
@@ -14,12 +12,12 @@ Countdown::Countdown(std::string c, int h, int m, int s) {
 	couldShowCaptionAtEnd = true;
 }
 
-void Countdown::start() {
-	int totalTime = h * 3600 + m * 60 + s;
+void tmr::Countdown::start() {
+	int totalTime = h * 3600 + m *60 + s;
 	for(int i = totalTime; i > 0; i --) {
-		int h = i / 3600;
-		int m = (i % 3600) / 60;
-		int s = i % 60;
+		int h = tmr::conv_tot_s(i, 'h');
+		int m = tmr::conv_tot_s(i, 'm');
+		int s = tmr::conv_tot_s(i, 's');
 		if(couldShowTime)
 			std::cout << tmr::format(h) << " : " << tmr::format(m) << " : " << tmr::format(s) << std::endl;
 		sleep(1); 
